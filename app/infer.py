@@ -2,7 +2,6 @@ import faiss
 import numpy as np
 from PIL import Image
 from sentence_transformers import SentenceTransformer
-import matplotlib.pyplot as plt
 import os
 import json
 import requests
