@@ -48,7 +48,7 @@ class FaissSearch():
 
 
 
-    def retrieve_similar_images(self,query:str,top_k:int=10):
+    def retrieve_similar_images(self,query:str,top_k:int=20):
         query_features=self.model.encode(query)
         query_features=query_features/np.linalg.norm(query_features)
         query_features = query_features.astype(np.float32).reshape(1, -1)
