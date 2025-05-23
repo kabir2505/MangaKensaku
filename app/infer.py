@@ -13,6 +13,10 @@ import urllib.request
 import urllib
 from functools import partial
 
+import os
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
 
 
 class FaissSearch():
@@ -60,5 +64,8 @@ class FaissSearch():
         return similar_images
             
     
-        
-faiss_search_engine = FaissSearch("faiss/faiss_index", "faiss/cloudinary_map.json")
+index_path = os.path.join(current_dir, "faiss", "faiss_index")
+print("Loading Faiss index from:", index_path)
+cloudinary_map_path = os.path.join(current_dir, "faiss", "cloudinary_map.json")     
+# faiss_search_engine = FaissSearch("faiss/faiss_index", "faiss/cloudinary_map.json")
+faiss_search_engine=FaissSearch(index_path=index_path,cloudinary_map_path=cloudinary_map_path)

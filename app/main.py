@@ -6,10 +6,14 @@ from fastapi import APIRouter
 from fastapi import Request
 from infer import faiss_search_engine
 import uvicorn
+import os
 
 app=FastAPI() # Fastapi instance
 
-templates=Jinja2Templates(directory="templates")
+
+current_dir = os.path.dirname(os.path.abspath(__file__))  # app/
+templates_path = os.path.join(current_dir, "templates")
+templates=Jinja2Templates(directory=templates_path)
 general_pages_router=APIRouter()
 
 # app.mount("/static")
