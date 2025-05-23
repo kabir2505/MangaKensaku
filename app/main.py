@@ -4,7 +4,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi import APIRouter
 from fastapi import Request
-from infer import faiss_search_engine
+from .infer import faiss_search_engine
 import uvicorn
 import os
 
