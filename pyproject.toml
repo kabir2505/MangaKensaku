@@ -1,0 +1,14 @@
+[project]
+name = "mangakensaku"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "faiss-cpu>=1.11.0",
+    "fastapi[standard]>=0.115.12",
+    "matplotlib>=3.10.3",
+    "numpy>=2.2.6",
+    "pillow>=11.2.1",
+    "sentence-transformers>=4.1.0",
+]

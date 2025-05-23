@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manga Kensaku – Results</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --text: #e6edf3;
+      --accent: #58a6ff;
+      --input-bg: #161b22;
+      --border: #30363d;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+
+    header {
+      width: 100%;
+      max-width: 960px;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      background: linear-gradient(90deg, #fff, #999);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+
+    form {
+      display: flex;
+      flex-grow: 1;
+      justify-content: flex-end;
+    }
+
+    input[type="text"] {
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      border: 1px solid var(--border);
+      background: var(--input-bg);
+      color: var(--text);
+      border-radius: 8px;
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05) translateY(-6px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+      z-index: 10;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      form {
+        width: 100%;
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Manga Kensaku</h1>
+    <form method="post" action="/search">
+      <input type="text" name="query" placeholder="Search again..." value="{{ query}}">
+    </form>
+  </header>
+
+  <div class="gallery">
+    {% for url in urls %}
+      <img src="{{ url }}" alt="Manga Panel">
+    {% endfor %}
+  </div>
+</body>
+</html>
